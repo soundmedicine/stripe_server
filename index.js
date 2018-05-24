@@ -24,7 +24,9 @@ router.post("/", (request, response) => {
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
-            : response.redirect("https://stripety-stripe.firebaseapp.com")
+            : response.redirect("https://stripety-stripe.firebaseapp.com", function() {
+                window.alert("Payment successful!")
+            })
     })
 })
 const port = process.env.PORT || 5000
