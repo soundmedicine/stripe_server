@@ -1,0 +1,1 @@
+Server for Stripe Library practice application. Deployed at https://gentle-escarpment-91505.herokuapp.com/
