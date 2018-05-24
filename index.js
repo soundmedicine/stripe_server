@@ -8,6 +8,9 @@ const bodyParser = require('body-parser')
 const app = express()
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(cors())
 
 router.post("/", (request, response) => {
@@ -20,7 +23,7 @@ router.post("/", (request, response) => {
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
-            : response.json({data: charge});
+            : response.json({data: charge})
     })
 })
 const port = process.env.PORT || 5000
