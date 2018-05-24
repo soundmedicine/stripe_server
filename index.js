@@ -24,8 +24,9 @@ router.post("/", (request, response) => {
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
-            : response.json({data: charge})
+            : response.render("success!", {amount: charge.amount})
     })
+    
 })
 const port = process.env.PORT || 5000
 app.use(router)
