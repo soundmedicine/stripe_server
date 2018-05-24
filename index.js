@@ -24,7 +24,7 @@ router.post("/", (request, response) => {
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
-            : response.render("success!", {amount: charge.amount})
+            : response.redirect("/")
     })
     
 })
