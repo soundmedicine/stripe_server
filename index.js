@@ -24,7 +24,7 @@ router.post("/", (request, response) => {
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
-            : alert("Amount paid: $300!")
+            : window.alert("Amount paid: $300!")
     })
 })
 const port = process.env.PORT || 5000
