@@ -18,8 +18,9 @@ router.post("/", (request, response) => {
         amount: +request.body.amount,
         currency: "usd",
         description: request.body.description,
-        source: request.body.stripeToken,
+        source: request.body.stripeToken
     }
+    console.log(options)
     stripe.charges.create(options, (error, charge) => {
         error
             ? response.status(400).json({error: error.message})
